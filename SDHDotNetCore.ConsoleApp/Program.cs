@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using SDHDotNetCore.ConsoleApp.AdoDotNetExamples;
+using System.Data;
 using System.Data.SqlClient;
 
 internal class Program
@@ -150,63 +151,66 @@ internal class Program
         //}
         #endregion
 
-        SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
-        {
-            DataSource = "DESKTOP-DDE6MVJ\\TESTINGSDH",
-            InitialCatalog = "HKSDotNetCore",
-            UserID = "Sa",
-            Password = "Sdh@1234"
-        };
-        SqlConnection connection = new SqlConnection(sqlConnectionStringBuilder.ConnectionString);
-        // open the connection
-        connection.Open();
-        Console.WriteLine("Connection opening...");
-        Console.WriteLine("Connection opened.");
-        Console.WriteLine();
+        #region ADORead
 
-        string query = "select * from tbl_blog"; //Read data from table
-        SqlCommand command = new SqlCommand(query, connection); //Write query
-        SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command); //Create new query and add query
-        DataTable dt = new DataTable(); 
-        sqlDataAdapter.Fill(dt);
+        //SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
+        //{
+        //    DataSource = "DESKTOP-DDE6MVJ\\TESTINGSDH",
+        //    InitialCatalog = "HKSDotNetCore",
+        //    UserID = "Sa",
+        //    Password = "Sdh@1234"
+        //};
+        //SqlConnection connection = new SqlConnection(sqlConnectionStringBuilder.ConnectionString);
+        //// open the connection
+        //connection.Open();
+        //Console.WriteLine("Connection opening...");
+        //Console.WriteLine("Connection opened.");
+        //Console.WriteLine();
 
-        string queryforStudent = "select * from tbl_student"; //Read data from table
-        SqlCommand command1 = new SqlCommand(queryforStudent, connection); //Write query
-        SqlDataAdapter adapter = new SqlDataAdapter(command1); //Create new query and add query
-        DataTable dt_Student = new DataTable();
-        adapter.Fill(dt_Student);
+        //string query = "select * from tbl_blog"; //Read data from table
+        //SqlCommand command = new SqlCommand(query, connection); //Write query
+        //SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command); //Create new query and add query
+        //DataTable dt = new DataTable(); 
+        //sqlDataAdapter.Fill(dt);
 
-        connection.Close();
-        Console.WriteLine("Connection closed.");
-        Console.WriteLine();
+        //string queryforStudent = "select * from tbl_student"; //Read data from table
+        //SqlCommand command1 = new SqlCommand(queryforStudent, connection); //Write query
+        //SqlDataAdapter adapter = new SqlDataAdapter(command1); //Create new query and add query
+        //DataTable dt_Student = new DataTable();
+        //adapter.Fill(dt_Student);
 
-        foreach (DataRow dr in dt.Rows)
-        {
-            Console.WriteLine(dr["BlogID"]);
-            Console.WriteLine(dr["BlogTitle"]);
-            Console.WriteLine(dr["BlogAuthor"]);
-            Console.WriteLine(dr["BlogContent"]);
-            Console.WriteLine("------------------------------");
-        }
+        //connection.Close();
+        //Console.WriteLine("Connection closed.");
+        //Console.WriteLine();
 
-        Console.WriteLine();
-        Console.WriteLine("These are lists of Student....");
-        Console.WriteLine();
+        //foreach (DataRow dr in dt.Rows)
+        //{
+        //    Console.WriteLine(dr["BlogID"]);
+        //    Console.WriteLine(dr["BlogTitle"]);
+        //    Console.WriteLine(dr["BlogAuthor"]);
+        //    Console.WriteLine(dr["BlogContent"]);
+        //    Console.WriteLine("------------------------------");
+        //}
 
-        foreach (DataRow dr in dt_Student.Rows)
-        {
-            Console.WriteLine(dr["StudentId"]);
-            Console.WriteLine(dr["Name"]);
-            Console.WriteLine(dr["Ph_no"]);
-            Console.WriteLine(dr["Age"]);
-            Console.WriteLine(dr["Subject"]);
-            Console.WriteLine(dr["Address"]);
-            Console.WriteLine("------------------------------");
-        }
+        //Console.WriteLine("*****************************************************************");
+        //Console.WriteLine();
+        //Console.WriteLine("These are lists of Student....");
+        //Console.WriteLine();
 
+        //foreach (DataRow dr in dt_Student.Rows)
+        //{
+        //    Console.WriteLine(dr["StudentId"]);
+        //    Console.WriteLine(dr["Name"]);
+        //    Console.WriteLine(dr["Ph_no"]);
+        //    Console.WriteLine(dr["Age"]);
+        //    Console.WriteLine(dr["Subject"]);
+        //    Console.WriteLine(dr["Address"]);
+        //    Console.WriteLine("------------------------------");
+        //}
+        #endregion
 
-
-
+        AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
+        adoDotNetExample.Run();
 
         Console.ReadKey();
     }
