@@ -1,4 +1,6 @@
-﻿using SDHDotNetCore.ConsoleApp.AdoDotNetExamples;
+﻿using HKSDotNetCore.ConsoleApp.DapperExamples;
+using SDHDotNetCore.ConsoleApp.AdoDotNetExamples;
+using SDHDotNetCore.ConsoleApp.EFCoreExamples;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -209,8 +211,14 @@ internal class Program
         //}
         #endregion
 
-        AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
-        adoDotNetExample.Run();
+        //AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
+        //adoDotNetExample.Run();
+
+        //DapperExample dapperExample = new DapperExample();
+        //dapperExample.Run();
+
+        EFCoreExample eFCoreExample = new EFCoreExample();
+        eFCoreExample.Run();
 
         Console.ReadKey();
     }
