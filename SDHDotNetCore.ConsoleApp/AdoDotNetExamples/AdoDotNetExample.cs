@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using System.Reflection.Metadata;
 
 namespace SDHDotNetCore.ConsoleApp.AdoDotNetExamples
 {
@@ -20,7 +21,7 @@ namespace SDHDotNetCore.ConsoleApp.AdoDotNetExamples
         };
         public void Run()
         {
-            Create("Myo Myo", "0999999999", 27, "Java", "Mandalay");
+           // Create("Myo Myo", "0999999999", 27, "Java", "Mandalay");
             Read();
             Edit(1);
             //Edit(100);
@@ -39,14 +40,7 @@ namespace SDHDotNetCore.ConsoleApp.AdoDotNetExamples
             DataTable dt = new DataTable();
             sqlDataAdapter.Fill(dt);
 
-            string queryforStudent = "select * from tbl_student"; //Read data from table
-            SqlCommand command1 = new SqlCommand(queryforStudent, connection); //Write query
-            SqlDataAdapter adapter = new SqlDataAdapter(command1); //Create new query and add query
-            DataTable dt_Student = new DataTable();
-            adapter.Fill(dt_Student);
-
             connection.Close();
-            //Console.WriteLine("Connection closed.");
             Console.WriteLine();
 
             foreach (DataRow dr in dt.Rows)
@@ -63,45 +57,27 @@ namespace SDHDotNetCore.ConsoleApp.AdoDotNetExamples
             Console.WriteLine("These are lists of Student....");
             Console.WriteLine();
 
-            foreach (DataRow dr in dt_Student.Rows)
-            {
-                Console.WriteLine(dr["StudentId"]);
-                Console.WriteLine(dr["Name"]);
-                Console.WriteLine(dr["Ph_no"]);
-                Console.WriteLine(dr["Age"]);
-                Console.WriteLine(dr["Subject"]);
-                Console.WriteLine(dr["Address"]);
-                Console.WriteLine("------------------------------");
-            }
         }
 
-        private void Create(string name,string ph_no,int age,string subject, string address)
+        private void Create(string title, string author, string content)
         {
             SqlConnection connection = new SqlConnection(sqlConnectionStringBuilder.ConnectionString);
-            // open the connection
             connection.Open();
 
-            string queryforStudent = @"INSERT INTO [dbo].[Tbl_Student]
-           ([Name]
-           ,[Ph_no]
-           ,[Age]
-           ,[Subject]
-           ,[Address])
+            string query = @"INSERT INTO [dbo].[Tbl_Blog]
+           ([BlogTitle]
+           ,[BlogAuthor]
+           ,[BlogContent])
      VALUES
-           (@Name
-           ,@Ph_no
-           ,@Age
-           ,@Subject
-           ,@Address)"; //Insert data into table
-            SqlCommand command1 = new SqlCommand(queryforStudent, connection); //Write query
-            command1.Parameters.AddWithValue("@Name", name);
-            command1.Parameters.AddWithValue("@Ph_no", ph_no);
-            command1.Parameters.AddWithValue("@Age", age);
-            command1.Parameters.AddWithValue("@Subject", subject);
-            command1.Parameters.AddWithValue("@Address", address);
-            
-            int result = command1.ExecuteNonQuery();
-            string message = result > 0 ? "Save Successful" : "Save Failed";
+           (@BlogTitle
+           ,@BlogAuthor
+           ,@BlogContent)"; // Insert Query
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@BlogTitle", title);
+            cmd.Parameters.AddWithValue("@BlogAuthor", author);
+            cmd.Parameters.AddWithValue("@BlogContent", content);
+            int result = cmd.ExecuteNonQuery();
+            string message = result > 0 ? "Saving Successful." : "Saving Failed.";
             Console.WriteLine(message);
 
             connection.Close();

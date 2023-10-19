@@ -28,7 +28,7 @@ namespace HKSDotNetCore.ConsoleApp.DapperExamples
             Edit(1);
            // Edit(100);
             Update(3, "test 1", "test 2", "test 3");
-            Delete(11);
+            //Delete(11);
         }
 
         // Read, Edit             => DataTable => Data

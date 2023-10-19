@@ -1,12 +1,13 @@
 ﻿using HKSDotNetCore.ConsoleApp.DapperExamples;
 using SDHDotNetCore.ConsoleApp.AdoDotNetExamples;
 using SDHDotNetCore.ConsoleApp.EFCoreExamples;
+using SDHDotNetCore.ConsoleApp.HttpClientExamples;
 using System.Data;
 using System.Data.SqlClient;
 
 internal class Program
 {
-    private static void Main(string[] args)
+    private static async Task Main(string[] args)
     {
         #region Test
         //int myNum = 5;               // Integer (whole number)
@@ -217,8 +218,14 @@ internal class Program
         //DapperExample dapperExample = new DapperExample();
         //dapperExample.Run();
 
-        EFCoreExample eFCoreExample = new EFCoreExample();
-        eFCoreExample.Run();
+        //EFCoreExample eFCoreExample = new EFCoreExample();
+        //eFCoreExample.Run();
+
+       // Console.WriteLine("Waiting for API... when it is ready, please Enter.");
+        //Console.ReadKey();
+
+        HttpClientExample httpClientExample = new HttpClientExample();
+        await httpClientExample.Run();
 
         Console.ReadKey();
     }
