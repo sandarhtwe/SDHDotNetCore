@@ -2,6 +2,7 @@
 using SDHDotNetCore.ConsoleApp.AdoDotNetExamples;
 using SDHDotNetCore.ConsoleApp.EFCoreExamples;
 using SDHDotNetCore.ConsoleApp.HttpClientExamples;
+using SDHDotNetCore.ConsoleApp.RestClientExamples;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -224,8 +225,11 @@ internal class Program
        // Console.WriteLine("Waiting for API... when it is ready, please Enter.");
         //Console.ReadKey();
 
-        HttpClientExample httpClientExample = new HttpClientExample();
-        await httpClientExample.Run();
+        //HttpClientExample httpClientExample = new HttpClientExample();
+        //await httpClientExample.Run();
+
+        RestClientExample restClientExample = new RestClientExample();
+        await restClientExample.Run();
 
         Console.ReadKey();
     }
