@@ -15,14 +15,14 @@ namespace SDHDotNetCore.ConsoleApp.RestClientExamples
         public async Task Run()
         {
             //await Read();
-            await Edit(2);
+            await Edit(5);
             //await Create("test 2", "test 2", "test 3");
            // await Update(1, "sandar", "sandar", "test6");
-            await Patch(2, "Sandar 1", null, null);
-            await Patch(2, null, "Sandar 2", null);
-            await Patch(2, null, null, "Sandar 3");
-            await Edit(2);
-            await Delete(2);
+            //await Patch(2, "Sandar 1", null, null);
+           // await Patch(2, null, "Sandar 2", null);
+            await Patch(5, null, null, "Sandar 3");
+            await Edit(5);
+            //await Delete(2);
         }
 
         public async Task Read()
