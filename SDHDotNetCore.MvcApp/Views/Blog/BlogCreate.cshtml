@@ -1,0 +1,47 @@
+﻿<h1>Blog</h1>
+
+@* @if (ViewData["Title2"] != null)
+{
+    <p>@ViewData["Title2"]</p>
+    <p>@(Convert.ToInt32(ViewData["Number"]) + 1 + ViewBag.Number2)</p>
+} *@
+@* @if(TempData["IsSuccess"] != null)
+{
+    bool isSuccess = Convert.ToBoolean(TempData["IsSuccess"]);
+    if (isSuccess)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["Message"]
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["Message"]
+        </div>
+    }
+} *@
+
+<partial name="_ValidateMessage" />
+<form method="post" action="/Blog/Save">
+
+<div class="mb-3">
+    <label class="form-label">Title</label>
+    <input type="text" name="BlogTitle" class="form-control">
+</div>
+<div class="mb-3">
+    <label class="form-label">Author</label>
+    <input type="text" name="BlogAuthor" class="form-control">
+</div>
+<div class="mb-3">
+    <label class="form-label">Content</label>
+    <input type="text" name="BlogContent" class="form-control">
+</div>
+<button type="button" class="btn btn-secondary">Back</button>
+<button type="submit" class="btn btn-success">Save</button>
+</form>
+@section scripts{
+    <script>
+       // alert();
+    </script>
+}

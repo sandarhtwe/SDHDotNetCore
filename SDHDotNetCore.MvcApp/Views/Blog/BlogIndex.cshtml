@@ -1,0 +1,35 @@
+﻿@model BlogListResponseModel
+@{
+    int rowCount = 0;
+}
+
+<partial name="_ValidateMessage" /> 
+
+<p>Page Count : @Model.PageCount</p>
+<p>Page Row Count : @Model.PageRowCount</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Content</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (BlogDataModel item in Model.BlogList)
+        {
+            <tr>
+                <td>
+                    <a href="/Blog/Edit/@item.BlogId" class="btn btn-warning">Edit</a>
+                   @*  <a href="/Blog/Delete/@item.BlogId" class="btn btn-warning">Delete</a> *@
+                    <a href="/Blog/Edit?blogId=@item.BlogId" class="btn btn-warning">Edit</a> 
+                </td>
+                <th scope="row">@(++rowCount)</th>
+                <td>@item.BlogTitle</td>
+                <td>@item.BlogAuthor</td>
+                <td>@item.BlogContent</td>
+            </tr>
+        }
+    </tbody>
+</table>

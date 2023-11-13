@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDHDotNetCore.ConsoleApp", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDHDotNetCore.RestApi", "..\SDHDotNetCore.RestApi\SDHDotNetCore.RestApi\SDHDotNetCore.RestApi.csproj", "{101F092F-02AA-4E30-98D5-A2FA463F136E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HWDotNetCore.RestAPI", "HWDotNetCore\HWDotNetCore.RestAPI.csproj", "{F696223F-613D-4C9E-87F8-881B59BAE250}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HWDotNetCore.RestAPI", "HWDotNetCore\HWDotNetCore.RestAPI.csproj", "{F696223F-613D-4C9E-87F8-881B59BAE250}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HWDotNetCore.ConsoleApp", "HWDotNetCore.ConsoleApp\HWDotNetCore.ConsoleApp.csproj", "{0B4849C9-5270-4E6C-8E63-9AB3174C640A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HWDotNetCore.ConsoleApp", "HWDotNetCore.ConsoleApp\HWDotNetCore.ConsoleApp.csproj", "{0B4849C9-5270-4E6C-8E63-9AB3174C640A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDHDotNetCore.MvcApp", "SDHDotNetCore.MvcApp\SDHDotNetCore.MvcApp.csproj", "{9B42E86E-A481-4F69-8AA9-32AB4C1B982F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0B4849C9-5270-4E6C-8E63-9AB3174C640A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B4849C9-5270-4E6C-8E63-9AB3174C640A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B4849C9-5270-4E6C-8E63-9AB3174C640A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B42E86E-A481-4F69-8AA9-32AB4C1B982F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B42E86E-A481-4F69-8AA9-32AB4C1B982F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B42E86E-A481-4F69-8AA9-32AB4C1B982F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B42E86E-A481-4F69-8AA9-32AB4C1B982F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

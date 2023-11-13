@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (TempData["Title2"] != null)
+{
+    <p>@TempData["Title2"]</p>
+    <p>@(Convert.ToInt32(TempData["Number"]) + 1 + Convert.ToInt32(TempData["Number2"]))</p>
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>

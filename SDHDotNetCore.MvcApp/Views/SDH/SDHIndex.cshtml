@@ -1,0 +1,16 @@
+﻿<h1>Blog</h1>
+
+@if (ViewData["Title"] != null)
+{
+    <p>@ViewData["Title"]</p>
+    <p>@ViewData["Author"]</p>
+    <p>@ViewData["Content"]</p><br/>
+    
+    <p>@ViewBag.Title</p>
+    <p>@ViewBag.Author</p>
+    <p>@ViewBag.Content</p><br/>
+
+    <p>@TempData["Title"]</p>
+    <p>@TempData["Author"]</p>
+    <p>@TempData["Content"]</p>
+}
