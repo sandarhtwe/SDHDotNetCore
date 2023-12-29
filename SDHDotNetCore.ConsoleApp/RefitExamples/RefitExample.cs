@@ -1,15 +1,16 @@
-﻿using Newtonsoft.Json;
+﻿using SDHDotNetCore.ConsoleApp.Models;
+using Newtonsoft.Json;
 using Refit;
-using SDHDotNetCore.ConsoleApp.Models;
+using RestSharp;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SDHDotNetCore.ConsoleApp.RefitExamples
 {
-    internal class RefitExample
+    public class RefitExample
+
     {
         private readonly IBlogApi blogApi;
 
@@ -104,5 +105,3 @@ namespace SDHDotNetCore.ConsoleApp.RefitExamples
         Task<BlogResponseModel> DeleteBlog(int id);
     }
 }
-    
-

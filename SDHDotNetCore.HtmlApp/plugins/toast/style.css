@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Dongle', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+}
+@media (min-width: 780px){
+    #page-title{
+    width: 780px;
+    }
+}
+.btn-wrapper{
+    width: 680px;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-evenly;
+    grid-gap:10px;
+}
+ 
+@media (max-width:700px){
+    .btn-wrapper{
+    width: 95%;
+    }
+}
+button.btn-toast {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: #000;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button.btn-toast:hover{
+    filter:brightness(.9); 
+}
+ 
+button.btn-success-toast{
+    background-color:#26c468;
+}
+button.btn-warning-toast{
+    background-color:#c99e25;
+}
+button.btn-info-toast{
+    background-color:#5fbdfc;
+}
+button.btn-danger-toast{
+    background-color:#ff3f3f;
+}

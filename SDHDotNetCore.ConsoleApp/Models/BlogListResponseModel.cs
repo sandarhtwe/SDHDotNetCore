@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SDHDotNetCore.ConsoleApp.Models
 {
-    internal class BlogListResponseModel
+    public
+        class BlogListResponseModel
     {
             public bool IsSuccess { get; set; }
             public string Message { get; set; }
