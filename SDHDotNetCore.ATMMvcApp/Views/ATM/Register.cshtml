@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Register"; 
+}
+<div class="container">
+    <h2>Register</h2>
+
+    <form method="post" action="/ATM/Register">
+        <div class="form-group">
+            <label for="FirstName">First Name:</label>
+            <input type="text" id="FirstName" name="FirstName" required>
+        </div>
+        <div class="form-group">
+            <label for="LastName">Last Name:</label>
+            <input type="text" id="LastName" name="LastName" required>
+        </div>
+        <div class="form-group">
+            <label for="CardNumber">Card Number:</label>
+            <input type="text" id="CardNumber" name="CardNumber" required>
+        </div>
+        <div class="form-group">
+            <label for="Pin">Pin:</label>
+            <input type="password" id="Pin" name="Pin" required>
+        </div>
+        <button type="submit" class="btn btn-primary" id="btnRegister">Register</button>
+    </form>
+</div>
+@* 
+@section scripts {
+    <script>
+        $('#btnRegister').click(function (e) {
+            e.preventDefault();
+            var message = '@TempData["Message"]';
+            console.log("Message from TempData:", message);
+            if (message.trim() === 'Registration Successful.') {
+                showSuccessAlert(message);
+            } else {
+                showErrorAlert(message);
+            }
+        })
+    </script>
+} *@
+
+
+
+
+

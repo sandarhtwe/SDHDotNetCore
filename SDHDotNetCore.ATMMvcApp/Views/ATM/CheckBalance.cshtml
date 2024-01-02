@@ -1,0 +1,31 @@
+﻿<!-- CheckBalance.cshtml -->
+@model ATMUserModel
+@{
+    ViewData["Title"] = "Check Balance";
+}
+
+<h2>Check Balance</h2>
+
+<div class="container">
+    <h2>Check Balance</h2>
+
+    <form method="get" action="/ATM/CheckBalance/@Model.UserId">
+        @if (ViewData["Balance"] != null)
+        {
+            <p>Your current balance: $@ViewData["Balance"]</p>
+        }
+        else
+        {
+            <p>Unable to retrieve balance.</p>
+        }
+
+        <a asp-controller="ATM" asp-action="CheckBalance" method="get">Refresh Balance</a>
+        <a href="/ATM/MainMenu/@Model.UserId">Back to Main Menu</a>
+    </form>
+
+</div>
+
+
+
+
+

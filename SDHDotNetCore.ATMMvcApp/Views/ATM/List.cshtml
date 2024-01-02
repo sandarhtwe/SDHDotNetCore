@@ -1,0 +1,38 @@
+﻿@model List<SDHDotNetCore.ATMMvcApp.Models.ATMUserModel>
+
+<div class="container">
+    <h2>User List</h2>
+
+    @if (Model.Count > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Card Number</th>
+                    <th>Pin</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.UserId</td>
+                        <td>@user.FirstName</td>
+                        <td>@user.LastName</td>
+                        <td>@user.CardNumber</td>
+                        <td>@user.Pin</td>
+                        <td>@user.Balance</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No users found.</p>
+    }
+</div>

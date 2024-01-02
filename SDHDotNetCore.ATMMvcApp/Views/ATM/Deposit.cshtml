@@ -1,0 +1,12 @@
+﻿@model ATMUserModel
+@{
+    ViewData["Title"] = "Deposit";
+}
+
+<h2>Deposit</h2>
+<form method="post" action="/ATM/Deposit/@Model.UserId">
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" required>
+    <br>
+    <button type="submit">Deposit</button>
+</form>
