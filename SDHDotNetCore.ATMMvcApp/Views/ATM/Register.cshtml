@@ -1,6 +1,13 @@
 ﻿@model ATMUserModel
 @{
     ViewData["Title"] = "Register"; 
+    string message = null;
+    bool isSuccess = false;
+    if (TempData["Message"] != null)
+    {
+        message = TempData["Message"].ToString();
+        isSuccess = Convert.ToBoolean(TempData["IsSuccess"]);
+    }
 }
 <div class="container">
     <h2>Register</h2>
@@ -25,6 +32,18 @@
         <button type="submit" class="btn btn-primary" id="btnRegister">Register</button>
     </form>
 </div>
+@if (message != null && isSuccess != false)
+{
+    <script>
+        showSuccessAlert(message);
+    </script>
+}
+else if (message != null && isSuccess == false)
+{
+    <script>
+        showErrorAlert(message);
+    </script>
+}
 
 
 
