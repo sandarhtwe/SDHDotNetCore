@@ -1,4 +1,5 @@
-﻿@{
+﻿@model ATMUserModel
+@{
     ViewData["Title"] = "Register"; 
 }
 <div class="container">
@@ -24,21 +25,7 @@
         <button type="submit" class="btn btn-primary" id="btnRegister">Register</button>
     </form>
 </div>
-@* 
-@section scripts {
-    <script>
-        $('#btnRegister').click(function (e) {
-            e.preventDefault();
-            var message = '@TempData["Message"]';
-            console.log("Message from TempData:", message);
-            if (message.trim() === 'Registration Successful.') {
-                showSuccessAlert(message);
-            } else {
-                showErrorAlert(message);
-            }
-        })
-    </script>
-} *@
+
 
 
 

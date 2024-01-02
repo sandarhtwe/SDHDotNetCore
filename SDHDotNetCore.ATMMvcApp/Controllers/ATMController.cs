@@ -36,7 +36,6 @@ namespace SDHDotNetCore.ATMMvcApp.Controllers
             return View();
         }
 
-
         public IActionResult Register()
         {
             return View();
