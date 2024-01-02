@@ -1,12 +1,10 @@
-﻿<!-- Withdraw.cshtml -->
-@model ATMUserModel
+﻿@model ATMUserModel
 @{
     ViewData["Title"] = "Withdraw";
 }
 
 <h2>Withdraw</h2>
 <form method="post" action="/ATM/Withdraw/@Model.UserId">
-    <!-- Add withdrawal form elements, e.g., amount -->
     <label for="amount">Amount:</label>
     <input type="number" id="amount" name="amount" required>
     <br>

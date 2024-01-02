@@ -20,16 +20,4 @@
         </div>
     </form>
 
-    @if (ViewData["IsSuccess"] != null && (bool)ViewData["IsSuccess"])
-    {
-        <script>
-            showSuccessAlert('@ViewData["Message"]');
-        </script>
-    }
-    else if (ViewData["IsSuccess"] != null && !(bool)ViewData["IsSuccess"])
-    {
-        <script>
-            showErrorAlert('@ViewData["Message"]');
-        </script>
-    }
 </div>

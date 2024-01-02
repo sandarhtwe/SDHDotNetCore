@@ -58,6 +58,7 @@ namespace SDHDotNetCore.ATMMvcApp.Controllers
             var users = await _context.Users.ToListAsync();
             return View(users);
         }
+
         [HttpGet]
         public IActionResult MainMenu(int id)
         {
