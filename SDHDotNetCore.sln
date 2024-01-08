@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDHDotNetCore.MvcApp", "SDH
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDHDotNetCore.ThemeMvcApp", "SDHDotNetCore.ThemeMvcApp\SDHDotNetCore.ThemeMvcApp.csproj", "{0A60E8BE-D3E2-4D51-B252-D0BDFF3A229B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDHDotNetCore.ATMMvcApp", "SDHDotNetCore.ATMMvcApp\SDHDotNetCore.ATMMvcApp.csproj", "{C9AC7895-062B-4F1E-B013-2AE23769C273}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDHDotNetCore.ATMMvcApp", "SDHDotNetCore.ATMMvcApp\SDHDotNetCore.ATMMvcApp.csproj", "{C9AC7895-062B-4F1E-B013-2AE23769C273}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDHDotNetCore.ATMWebApp", "SDHDotNetCore.ATMWebApp\SDHDotNetCore.ATMWebApp.csproj", "{B5FD3719-666F-4759-8892-E682822B238B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{C9AC7895-062B-4F1E-B013-2AE23769C273}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9AC7895-062B-4F1E-B013-2AE23769C273}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9AC7895-062B-4F1E-B013-2AE23769C273}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5FD3719-666F-4759-8892-E682822B238B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5FD3719-666F-4759-8892-E682822B238B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5FD3719-666F-4759-8892-E682822B238B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5FD3719-666F-4759-8892-E682822B238B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

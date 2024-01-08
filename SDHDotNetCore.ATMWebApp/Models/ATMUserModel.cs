@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SDHDotNetCore.ATMMvcApp.Models
+namespace SDHDotNetCore.ATMWebApp.Models
 {
     [Table("Tbl_ATMUsers")]
     public class ATMUserModel
@@ -17,6 +17,7 @@ namespace SDHDotNetCore.ATMMvcApp.Models
     public class MessageModel
     {
         public MessageModel() { }
+
         public MessageModel(bool isSuccess, string message)
         {
             IsSuccess = isSuccess;

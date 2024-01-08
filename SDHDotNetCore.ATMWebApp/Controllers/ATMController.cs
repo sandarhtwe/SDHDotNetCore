@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SDHDotNetCore.ATMMvcApp.EFDbContext;
-using SDHDotNetCore.ATMMvcApp.Models;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http; 
+using SDHDotNetCore.ATMWebApp.EFDbContext;
+using SDHDotNetCore.ATMWebApp.Models;
 
 namespace SDHDotNetCore.ATMMvcApp.Controllers
 {
@@ -29,7 +30,8 @@ namespace SDHDotNetCore.ATMMvcApp.Controllers
 
             if (user != null)
             {
-                return RedirectToAction("MainMenu", new { id = user.UserId });
+                HttpContext.Session.SetInt32("UserId", user.UserId); 
+                return RedirectToAction("MainMenu");
             }
 
             ViewData["Error"] = "Invalid card number or PIN.";
@@ -54,7 +56,6 @@ namespace SDHDotNetCore.ATMMvcApp.Controllers
             return Json(model);
         }
 
-
         public async Task<IActionResult> List()
         {
             var users = await _context.Users.ToListAsync();
@@ -62,9 +63,10 @@ namespace SDHDotNetCore.ATMMvcApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult MainMenu(int id)
+        public IActionResult MainMenu()
         {
-            var user = _context.Users.FirstOrDefault(x => x.UserId == id);
+            var userId = HttpContext.Session.GetInt32("UserId");
+            var user = _context.Users.FirstOrDefault(x => x.UserId == userId);
 
             if (user != null)
             {
@@ -74,12 +76,13 @@ namespace SDHDotNetCore.ATMMvcApp.Controllers
             TempData["Message"] = "No data found.";
             TempData["IsSuccess"] = false;
 
-            return RedirectToAction("Login"); 
+            return RedirectToAction("Login");
         }
 
-        public IActionResult Withdraw(int id)
+        public IActionResult Withdraw()
         {
-            var user = _context.Users.FirstOrDefault(x => x.UserId == id);
+            var userId = HttpContext.Session.GetInt32("UserId");
+            var user = _context.Users.FirstOrDefault(x => x.UserId == userId);
 
             if (user != null)
             {
@@ -89,13 +92,15 @@ namespace SDHDotNetCore.ATMMvcApp.Controllers
             TempData["Message"] = "No data found.";
             TempData["IsSuccess"] = false;
 
-            return View("MainMenu");
+            return RedirectToAction("MainMenu");
         }
 
         [HttpPost]
-        public async Task<IActionResult> Withdraw(int id, ATMUserModel reqModel)
+        public async Task<IActionResult> Withdraw(ATMUserModel reqModel)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == id);
+            var userId = HttpContext.Session.GetInt32("UserId");
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == userId);
+
             if (user is null)
             {
                 TempData["Message"] = "No data found.";
@@ -105,7 +110,7 @@ namespace SDHDotNetCore.ATMMvcApp.Controllers
 
             if (user.Balance < reqModel.Balance)
             {
-                TempData["Message"] = "Withdrawal failed. Insufficient balance.";
+                TempData["Message"] = "Withdrawal failed. Invalid data or insufficient balance.";
                 TempData["IsSuccess"] = false;
                 return Json(user);
             }
@@ -120,9 +125,10 @@ namespace SDHDotNetCore.ATMMvcApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult Deposit(int id)
+        public IActionResult Deposit()
         {
-            var user = _context.Users.FirstOrDefault(x => x.UserId == id);
+            var userId = HttpContext.Session.GetInt32("UserId");
+            var user = _context.Users.FirstOrDefault(x => x.UserId == userId);
 
             if (user != null)
             {
@@ -132,13 +138,15 @@ namespace SDHDotNetCore.ATMMvcApp.Controllers
             TempData["Message"] = "No data found.";
             TempData["IsSuccess"] = false;
 
-            return View("MainMenu");
+            return RedirectToAction("MainMenu");
         }
 
         [HttpPost]
-        public async Task<IActionResult> Deposit(int id, ATMUserModel reqModel)
+        public async Task<IActionResult> Deposit(ATMUserModel reqModel)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == id);
+            var userId = HttpContext.Session.GetInt32("UserId");
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == userId);
+
             if (user is null)
             {
                 TempData["Message"] = "No data found.";
@@ -156,9 +164,11 @@ namespace SDHDotNetCore.ATMMvcApp.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> CheckBalance(int id)
+        public async Task<IActionResult> CheckBalance()
         {
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == id);
+            var userId = HttpContext.Session.GetInt32("UserId");
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == userId);
+
             if (user is null)
             {
                 TempData["Message"] = "No data found.";

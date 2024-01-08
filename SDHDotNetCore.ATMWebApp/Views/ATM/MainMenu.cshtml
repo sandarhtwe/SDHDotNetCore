@@ -1,0 +1,15 @@
+﻿@model ATMUserModel
+
+<div class="container">
+
+    <h2>Main Menu</h2>
+    <p>Welcome, @Model.FirstName @Model.LastName!</p>
+    <p>Your Card Number : @Model.CardNumber</p>
+    <p>Your Balance : @Model.Balance</p>
+    <div>
+        <a class="btn btn-warning" href="/ATM/Withdraw/@Model.UserId">Withdraw</a>
+        <a class="btn btn-info" href="/ATM/Deposit/@Model.UserId">Deposit</a>
+        <a class="btn btn-primary" href="/ATM/CheckBalance/@Model.UserId">Check Balance</a>
+        <a class="btn btn-danger" href="/ATM/Login">Exit</a>
+    </div>
+</div>
