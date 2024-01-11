@@ -5,15 +5,13 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDHDotNetCore.ConsoleApp", "SDHDotNetCore.ConsoleApp\SDHDotNetCore.ConsoleApp.csproj", "{F1A95B95-34B9-4D5F-9318-67EADFE738A7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDHDotNetCore.RestApi", "..\SDHDotNetCore.RestApi\SDHDotNetCore.RestApi\SDHDotNetCore.RestApi.csproj", "{101F092F-02AA-4E30-98D5-A2FA463F136E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDHDotNetCore.MvcApp", "SDHDotNetCore.MvcApp\SDHDotNetCore.MvcApp.csproj", "{9B42E86E-A481-4F69-8AA9-32AB4C1B982F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDHDotNetCore.ThemeMvcApp", "SDHDotNetCore.ThemeMvcApp\SDHDotNetCore.ThemeMvcApp.csproj", "{0A60E8BE-D3E2-4D51-B252-D0BDFF3A229B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDHDotNetCore.ATMMvcApp", "SDHDotNetCore.ATMMvcApp\SDHDotNetCore.ATMMvcApp.csproj", "{C9AC7895-062B-4F1E-B013-2AE23769C273}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDHDotNetCore.ATMWebApp", "SDHDotNetCore.ATMWebApp\SDHDotNetCore.ATMWebApp.csproj", "{B5FD3719-666F-4759-8892-E682822B238B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDHDotNetCore.ATMWebApp", "SDHDotNetCore.ATMWebApp\SDHDotNetCore.ATMWebApp.csproj", "{B5FD3719-666F-4759-8892-E682822B238B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		{F1A95B95-34B9-4D5F-9318-67EADFE738A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1A95B95-34B9-4D5F-9318-67EADFE738A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1A95B95-34B9-4D5F-9318-67EADFE738A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{101F092F-02AA-4E30-98D5-A2FA463F136E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{101F092F-02AA-4E30-98D5-A2FA463F136E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{101F092F-02AA-4E30-98D5-A2FA463F136E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{101F092F-02AA-4E30-98D5-A2FA463F136E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9B42E86E-A481-4F69-8AA9-32AB4C1B982F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9B42E86E-A481-4F69-8AA9-32AB4C1B982F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B42E86E-A481-4F69-8AA9-32AB4C1B982F}.Release|Any CPU.ActiveCfg = Release|Any CPU
