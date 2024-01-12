@@ -2,10 +2,9 @@
 
 <div class="container">
 
-    <h2>Main Menu</h2>
-    <p>Welcome, @Model.FirstName @Model.LastName!</p>
-    <p>Your Card Number : @Model.CardNumber</p>
-    <p>Your Balance : @Model.Balance</p>
+    <h2 style="margin-bottom: 10px;">Main Menu</h2>
+    <p style="margin-top: 10px;">Welcome,<strong>@Model.FirstName @Model.LastName!</strong> </p>
+    <p>Your Card Number : <strong>@Model.CardNumber</strong></p>
     <div>
         <a class="btn btn-warning" href="/ATM/Withdraw/@Model.UserId">Withdraw</a>
         <a class="btn btn-info" href="/ATM/Deposit/@Model.UserId">Deposit</a>

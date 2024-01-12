@@ -9,7 +9,7 @@
     <form method="get" action="/ATM/CheckBalance/@Model.UserId">
         @if (ViewData["Balance"] != null)
         {
-            <p>Your current balance: $@ViewData["Balance"]</p>
+            <p>Your current balance:<strong>$@ViewData["Balance"]</strong></p>
         }
         else
         {

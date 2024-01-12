@@ -1,4 +1,9 @@
-/* styles.css */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 body {
 	font-family: 'Arial', sans-serif;
 	margin: 0;
@@ -32,6 +37,7 @@ input {
 }
 
 button {
+	display: block;
 	padding: 10px;
 	background-color: #007bff;
 	color: #fff;
@@ -40,9 +46,9 @@ button {
 	cursor: pointer;
 }
 
-	button:hover {
+button:hover {
 		background-color: #0056b3;
-	}
+}
 
 .error-message {
 	color: #ff0000;

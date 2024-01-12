@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDHDotNetCore.ATMMvcApp", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDHDotNetCore.ATMWebApp", "SDHDotNetCore.ATMWebApp\SDHDotNetCore.ATMWebApp.csproj", "{B5FD3719-666F-4759-8892-E682822B238B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDHDotNetCore.RestApi", "SDHDotNetCore.RestApi\SDHDotNetCore.RestApi.csproj", "{54603394-BB13-439F-8B31-5441F15DACBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDHDotNetCore.RestApi", "SDHDotNetCore.RestApi\SDHDotNetCore.RestApi.csproj", "{54603394-BB13-439F-8B31-5441F15DACBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDHDotNetCore.LoginWebApp", "SDHDotNetCore.LoginWebApp\SDHDotNetCore.LoginWebApp.csproj", "{664EED67-E9FE-4081-8411-71FB9ABFC55A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{54603394-BB13-439F-8B31-5441F15DACBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54603394-BB13-439F-8B31-5441F15DACBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54603394-BB13-439F-8B31-5441F15DACBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{664EED67-E9FE-4081-8411-71FB9ABFC55A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{664EED67-E9FE-4081-8411-71FB9ABFC55A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{664EED67-E9FE-4081-8411-71FB9ABFC55A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{664EED67-E9FE-4081-8411-71FB9ABFC55A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
