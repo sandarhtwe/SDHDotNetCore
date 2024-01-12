@@ -12,15 +12,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(opt =>
 {
-    SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
-    {
-        DataSource = "DESKTOP-DDE6MVJ\\TESTINGSDH",
-        InitialCatalog = "HKSDotNetCore",
-        UserID = "Sa",
-        Password = "Sdh@1234",
-        TrustServerCertificate = true
-    };
-    opt.UseSqlServer(sqlConnectionStringBuilder.ConnectionString);
+    //SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
+    //{
+    //    DataSource = "DESKTOP-DDE6MVJ\\TESTINGSDH",
+    //    InitialCatalog = "HKSDotNetCore",
+    //    UserID = "Sa",
+    //    Password = "Sdh@1234",
+    //    TrustServerCertificate = true
+    //};
+    //opt.UseSqlServer(sqlConnectionStringBuilder.ConnectionString);
+    string connectionString = builder.Configuration.GetConnectionString("DbConnection");
+    opt.UseSqlServer(connectionString);
 });
 
 var app = builder.Build();
