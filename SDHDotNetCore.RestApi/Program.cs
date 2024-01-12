@@ -1,3 +1,7 @@
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using SDHDotNetCore.RestApi.EFDbContext;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +10,18 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<AppDbContext>(opt =>
+{
+    SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
+    {
+        DataSource = "DESKTOP-DDE6MVJ\\TESTINGSDH",
+        InitialCatalog = "HKSDotNetCore",
+        UserID = "Sa",
+        Password = "Sdh@1234",
+        TrustServerCertificate = true
+    };
+    opt.UseSqlServer(sqlConnectionStringBuilder.ConnectionString);
+});
 
 var app = builder.Build();
 
