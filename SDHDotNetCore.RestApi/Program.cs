@@ -4,6 +4,12 @@ using SDHDotNetCore.RestApi.EFDbContext;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllersWithViews().AddJsonOptions(opt =>
+{
+    opt.JsonSerializerOptions.PropertyNamingPolicy = null;
+    opt.JsonSerializerOptions.PropertyNameCaseInsensitive = false;
+});
+
 // Add services to the container.
 
 builder.Services.AddControllers();
