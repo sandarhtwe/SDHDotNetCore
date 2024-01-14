@@ -1,0 +1,47 @@
+﻿<div class="mb-3">
+    <label class="form-label">Title</label>
+    <input type="text" id="BlogTitle" class="form-control">
+</div>
+<div class="mb-3">
+    <label class="form-label">Author</label>
+    <input type="text" id="BlogAuthor" class="form-control">
+</div>
+<div class="mb-3">
+    <label class="form-label">Content</label>
+    <input type="text" id="BlogContent" class="form-control">
+</div>
+<a href="/blogajax" class="btn btn-secondary">Cancel</a>
+<button type="button" class="btn btn-primary ladda-button" data-style="expand-left" id="btnSave">
+    <span class="ladda-label">Save</span>
+</button>
+@section scripts {
+    <script>
+        $('#btnSave').click(function (e) {
+            e.preventDefault();
+
+            var l = Ladda.create(this);
+            l.start();
+
+            var _reqModel = {
+                BlogTitle: $('#BlogTitle').val(),
+                BlogAuthor: $('#BlogAuthor').val(),
+                BlogContent: $('#BlogContent').val(),
+            };
+
+            $.ajax({
+                url: '/blogajax/save',
+                type: 'POST',
+                data: {
+                    reqModel: _reqModel
+                },
+                success: function (data) {
+                    l.stop();
+                    showMessage(data, "/blogajax/list");
+                },
+                error: function (request, status, error) {
+                    console.log({ request, status, error });
+                }
+            });
+        })
+    </script>
+}
