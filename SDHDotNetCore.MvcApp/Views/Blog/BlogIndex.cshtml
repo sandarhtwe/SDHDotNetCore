@@ -1,9 +1,16 @@
-﻿@model BlogListResponseModel
+﻿@model BlogListResponseModel1
 @{
     int rowCount = 0;
 }
 
 <partial name="_ValidateMessage" /> 
+
+<h4>
+    <a href="/blog/create" class="btn btn-success">
+        <i class="fa fa-plus"></i>
+    </a>
+    Blog List
+</h4>
 
 <p>Page Count : @Model.PageCount</p>
 <p>Page Row Count : @Model.PageRowCount</p>
@@ -22,8 +29,8 @@
             <tr>
                 <td>
                     <a href="/Blog/Edit/@item.BlogId" class="btn btn-warning">Edit</a>
-                   @*  <a href="/Blog/Delete/@item.BlogId" class="btn btn-warning">Delete</a> *@
-                    <a href="/Blog/Edit?blogId=@item.BlogId" class="btn btn-warning">Edit</a> 
+                    <a href="/Blog/Delete/@item.BlogId" class="btn btn-danger">Delete</a> 
+                    @* <a href="/Blog/Edit?blogId=@item.BlogId" class="btn btn-warning">Edit</a>  *@
                 </td>
                 <th scope="row">@(++rowCount)</th>
                 <td>@item.BlogTitle</td>

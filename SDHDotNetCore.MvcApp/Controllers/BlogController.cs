@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SDHDotNetCore.MvcApp.EFDbContext;
-using SDHDotNetCore.MvcApp.EFDbContext;
 using SDHDotNetCore.MvcApp.Models;
 
 namespace SDHDotNetCore.MvcApp.Controllers
@@ -30,7 +29,7 @@ namespace SDHDotNetCore.MvcApp.Controllers
             if (pageRowCount % pageSize > 0)
                 pageCount++;
 
-            BlogListResponseModel model = new BlogListResponseModel
+            BlogListResponseModel1 model = new BlogListResponseModel1
             {
                 BlogList = lst,
                 PageCount = pageCount,
