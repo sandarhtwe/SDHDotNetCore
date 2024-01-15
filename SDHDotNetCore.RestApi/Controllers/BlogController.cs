@@ -19,15 +19,21 @@ namespace SDHDotNetCore.RestApi.Controllers
         [HttpGet]
         public IActionResult GetBlog()
         {
-            var lst = _appDbContext.Blogs.ToList();
-            return Ok(lst);
+            List<BlogDataModel> lst = _appDbContext.Blogs.ToList();
+            BlogListResponseModel model = new BlogListResponseModel()
+            {
+                IsSuccess = true,
+                Message = "Success",
+                Data = lst
+            };
+            return Ok(model);
         }
 
         [HttpGet("{id}")]
         public IActionResult EditBlog(int id)
         {
             BlogResponseModel model = new BlogResponseModel();
-            var item = _appDbContext.Blogs.FirstOrDefault(x => x.BlogId == id);
+            BlogDataModel item = _appDbContext.Blogs.FirstOrDefault(x => x.BlogId == id);
             if (item is null)
             {
                 model.IsSuccess = false;
