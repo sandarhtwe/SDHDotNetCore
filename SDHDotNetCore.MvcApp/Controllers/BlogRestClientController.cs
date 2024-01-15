@@ -31,7 +31,7 @@ namespace SDHDotNetCore.MvcApp.Controllers
 		[ActionName("Create")]
 		public IActionResult BlogCreate()
 		{
-			return View("~/Views/BlogRefit/BlogRefitCreate.cshtml");
+			return View("~/Views/BlogRefit/BlogCreate.cshtml");
 		}
 
 		[HttpPost]
@@ -58,7 +58,7 @@ namespace SDHDotNetCore.MvcApp.Controllers
 			{
 				string jsonStr = response.Content!;
 				var model = JsonConvert.DeserializeObject<BlogResponseModel>(jsonStr);
-				return View("~/Views/BlogRefit/BlogRefitEdit.cshtml", model);
+				return View("~/Views/BlogRefit/BlogEdit.cshtml", model);
 			}
 			return Redirect("/blogrestclient");
 		}
