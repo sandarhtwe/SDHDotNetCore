@@ -15,15 +15,16 @@ namespace SDHDotNetCore.MvcApp.Controllers
 		[HttpGet]
 		[ActionName("Index")]
 		public async Task<IActionResult> Index()
+		
 		{
 			var model = await _blogApi.GetBlogs();
 			return View(model);
 		}
 
 		[ActionName("Create")]
-		public IActionResult BlogRefitCreate()
+		public IActionResult BlogCreate()
 		{
-			return View("BlogRefitCreate");
+			return View("BlogCreate");
 		}
 
 		[HttpPost]
@@ -35,10 +36,10 @@ namespace SDHDotNetCore.MvcApp.Controllers
 		}
 
 		[ActionName("Edit")]
-		public async Task<IActionResult> BlogRefitEdit(int id)
+		public async Task<IActionResult> BlogEdit(int id)
 		{
 			var model = await _blogApi.GetBlog(id);
-			return View("BlogRefitEdit", model);
+			return View("BlogEdit", model);
 		}
 
 		[HttpPost]
