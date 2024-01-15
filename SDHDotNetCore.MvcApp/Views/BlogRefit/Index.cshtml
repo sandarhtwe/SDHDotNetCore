@@ -2,25 +2,42 @@
 @{
     int count = 0;
 }
-<table class="table">
+
+<partial name="_ValidateMessage" />
+
+<h4>
+    <a href="/blogrefit/create" class="btn btn-success">
+        <i class="fa fa-plus"></i>
+    </a>
+    Blog List
+</h4>
+
+<table class="table table-striped">
     <thead>
         <tr>
-            <th></th>
             <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Author</th>
-            <th scope="col">Content</th>
+            <th scope="col">Blog Title</th>
+            <th scope="col">Blog Author</th>
+            <th scope="col">Blog Content</th>
+            <th scope="col"></th>
         </tr>
-    </thead>
     <tbody>
-        @foreach (var item in Model.Data)
-        {
+            @foreach (var item in Model.Data)
+            {
             <tr>
                 <th scope="row">@(++count)</th>
                 <td>@item.BlogTitle</td>
                 <td>@item.BlogAuthor</td>
                 <td>@item.BlogContent</td>
+                <td>
+                    <a class="btn btn-warning" href="/blogrefit/edit?id=@item.BlogId">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                    <a class="btn btn-danger" href="/blogrefit/delete?id=@item.BlogId">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+                </td>
             </tr>
-        }
+            }
     </tbody>
 </table>
