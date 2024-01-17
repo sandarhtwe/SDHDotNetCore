@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDHDotNetCore.MinimalApi", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDHDotNetCore.DbFirstCommandApp", "SDHDotNetCore.DbFirstCommandApp\SDHDotNetCore.DbFirstCommandApp.csproj", "{0D2D9B4C-8DE4-407C-B305-A65F1802ABE9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDHDotNetCore.LoggingConsoleApp", "SDHDotNetCore.LoggingConsoleApp\SDHDotNetCore.LoggingConsoleApp.csproj", "{23F11470-190C-4F71-887A-D07261D99AE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{0D2D9B4C-8DE4-407C-B305-A65F1802ABE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D2D9B4C-8DE4-407C-B305-A65F1802ABE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D2D9B4C-8DE4-407C-B305-A65F1802ABE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23F11470-190C-4F71-887A-D07261D99AE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23F11470-190C-4F71-887A-D07261D99AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23F11470-190C-4F71-887A-D07261D99AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23F11470-190C-4F71-887A-D07261D99AE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
