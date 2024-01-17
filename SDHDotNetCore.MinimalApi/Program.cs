@@ -1,41 +1,63 @@
 using Microsoft.EntityFrameworkCore;
 using SDHDotNetCore.MinimalApi.EFDbContext;
 using SDHDotNetCore.MinimalApi.Features.Blog;
+using Serilog;
 using System.Text.Json.Serialization;
 
-var builder = WebApplication.CreateBuilder(args);
+Log.Logger = new LoggerConfiguration()
+	.WriteTo.Console()
+	.WriteTo.File("logs/myapp.txt", rollingInterval: RollingInterval.Hour, fileSizeLimitBytes: 1024)
+	.CreateLogger();
 
-//Json CamelCase off
-builder.Services.ConfigureHttpJsonOptions(opt =>
+try
 {
-    opt.SerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-    opt.SerializerOptions.PropertyNamingPolicy = null;
-});
+	Log.Information("Starting web application");
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+	var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<AppDbContext>(opt =>
-{
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
-},
-ServiceLifetime.Transient,
-ServiceLifetime.Transient);
+	builder.Host.UseSerilog();
 
-var app = builder.Build();
+	//Json CamelCase off
+	builder.Services.ConfigureHttpJsonOptions(opt =>
+	{
+		opt.SerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+		opt.SerializerOptions.PropertyNamingPolicy = null;
+	});
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+	// Add services to the container.
+	// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+	builder.Services.AddEndpointsApiExplorer();
+	builder.Services.AddSwaggerGen();
+
+	builder.Services.AddDbContext<AppDbContext>(opt =>
+	{
+		opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
+	},
+	ServiceLifetime.Transient,
+	ServiceLifetime.Transient);
+
+	var app = builder.Build();
+
+	// Configure the HTTP request pipeline.
+	if (app.Environment.IsDevelopment())
+	{
+		app.UseSwagger();
+		app.UseSwaggerUI();
+	}
+
+	app.UseHttpsRedirection();
+
+	app.AddBlogService();
+
+	app.Run();
+
 }
-
-app.UseHttpsRedirection();
-
-app.AddBlogService();
-
-app.Run();
+catch (Exception ex)
+{
+	Log.Fatal(ex, "Application terminated unexpectedly");
+}
+finally
+{
+	Log.CloseAndFlush();
+}
 

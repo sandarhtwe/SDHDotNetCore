@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SDHDotNetCore.RestApi.EFDbContext;
 using SDHDotNetCore.RestApi.Models;
 
@@ -10,13 +11,15 @@ namespace SDHDotNetCore.RestApi.Controllers
     public class BlogController : ControllerBase
     {
         private readonly AppDbContext _appDbContext;
+		private readonly ILogger<BlogController> _logger;
 
-        public BlogController(AppDbContext appDbContext)
-        {
-            _appDbContext = appDbContext;
-        }
+		public BlogController(AppDbContext context, ILogger<BlogController> logger)
+		{
+			_appDbContext = context;
+			_logger = logger;
+		}
 
-        [HttpGet]
+		[HttpGet]
         public IActionResult GetBlog()
         {
             List<BlogDataModel> lst = _appDbContext.Blogs.ToList();
