@@ -1,12 +1,16 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Serilog;
+using System.Reflection;
 
 Console.WriteLine("Hello, World!");
+
+//to get the project name
+string projectName = Assembly.GetEntryAssembly()?.GetName()?.Name;
 
 Log.Logger = new LoggerConfiguration()
 			.MinimumLevel.Debug()
 			.WriteTo.Console()
-			.WriteTo.File("logs/myapp.txt", rollingInterval: RollingInterval.Day)
+			.WriteTo.File($"logs/{projectName}.txt", rollingInterval: RollingInterval.Day)
 			.CreateLogger();
 
 Log.Information("Hello, world!");

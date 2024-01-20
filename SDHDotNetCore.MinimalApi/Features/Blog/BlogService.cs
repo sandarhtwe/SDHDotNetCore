@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using SDHDotNetCore.MinimalApi.EFDbContext;
 using SDHDotNetCore.MinimalApi.Models;
+using System.Collections.Generic;
 using System.Reflection.Metadata;
 using System.Text.Json;
 
@@ -25,19 +26,21 @@ public static class BlogService
         .WithOpenApi();
 
         //Create Blog
-        app.MapPost("/blog", async ([FromServices] AppDbContext db, BlogDataModel blog) =>
+        app.MapPost("/blog", async ([FromServices] AppDbContext db, [FromServices] ILogger < Program > _logger, BlogDataModel blog) =>
         {
             await db.Blogs.AddAsync(blog);
             int result = await db.SaveChangesAsync();
 
             string message = result > 0 ? "Saving Successful." : "Saving Failed.";
-            return Results.Ok(new BlogResponseModel
+
+			_logger.LogInformation("Created Blog => " + JsonSerializer.Serialize(blog),"Creating Status"+JsonSerializer.Serialize(message));
+			return Results.Ok(new BlogResponseModel
             {
                 Data = blog,
                 IsSuccess = result > 0,
                 Message = message
             });
-        })
+		})
        .WithName("CreateBlog")
        .WithOpenApi();
         
