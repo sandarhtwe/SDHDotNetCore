@@ -2,11 +2,24 @@ using Microsoft.EntityFrameworkCore;
 using SDHDotNetCore.MinimalApi.EFDbContext;
 using SDHDotNetCore.MinimalApi.Features.Blog;
 using Serilog;
+using Serilog.Sinks.MSSqlServer;
+using System.Reflection;
 using System.Text.Json.Serialization;
+
+//to get the project name
+string projectName = Assembly.GetEntryAssembly()?.GetName()?.Name;
 
 Log.Logger = new LoggerConfiguration()
 	.WriteTo.Console()
-	.WriteTo.File("logs/myapp.txt", rollingInterval: RollingInterval.Hour, fileSizeLimitBytes: 1024)
+	.WriteTo.
+		MSSqlServer(
+			connectionString: "Server=DESKTOP-DDE6MVJ\\TESTINGSDH;Database=TestDb;User ID=sa;Password=Sdh@1234;TrustServerCertificate=True;",
+			sinkOptions: new MSSqlServerSinkOptions
+			{
+				TableName = "LogEventsForMinimalApi",
+				AutoCreateSqlTable = true
+			})
+	//File($"logs/{projectName}.txt", rollingInterval: RollingInterval.Hour, fileSizeLimitBytes: 1024)
 	.CreateLogger();
 
 try

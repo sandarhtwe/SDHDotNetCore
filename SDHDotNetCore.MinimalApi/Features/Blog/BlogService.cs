@@ -45,7 +45,7 @@ public static class BlogService
        .WithOpenApi();
         
         //Edit Blog
-        app.MapGet("/blog/{id}", async ([FromServices] AppDbContext db, int id) =>
+        app.MapGet("/blog/{id}", async ([FromServices] AppDbContext db, [FromServices] ILogger < Program > _logger, int id) =>
         {
             var item = await db.Blogs.FirstOrDefaultAsync(x => x.BlogId == id);
 
@@ -57,6 +57,7 @@ public static class BlogService
                     Message = "No data found."
                 });
             }
+			_logger.LogInformation("Blog Item => " + JsonSerializer.Serialize(item)); 
             return Results.Ok(new BlogResponseModel
             {
                 Data = item,
@@ -68,7 +69,7 @@ public static class BlogService
         .WithOpenApi();
 
         //Update Blog
-        app.MapPut("/blog/{id}", async ([FromServices] AppDbContext db, int id, BlogDataModel blog) =>
+        app.MapPut("/blog/{id}", async ([FromServices] AppDbContext db, [FromServices] ILogger < Program > _logger, int id, BlogDataModel blog) =>
         {
             var item = await db.Blogs.FirstOrDefaultAsync(x => x.BlogId == id);
 
@@ -86,7 +87,10 @@ public static class BlogService
 
             var result = await db.SaveChangesAsync();
             string message = result > 0 ? "Updating Successful." : "Updating Failed.";
-            return Results.Ok(new BlogResponseModel
+
+			_logger.LogInformation("Updated Blog => " + JsonSerializer.Serialize(item), "Creating Status" + JsonSerializer.Serialize(message));
+
+			return Results.Ok(new BlogResponseModel
             {
                 Data = item,
                 IsSuccess = result > 0,
@@ -97,7 +101,7 @@ public static class BlogService
         .WithOpenApi();
 
         //Patch Blog
-        app.MapPatch("/blog/{id}", async ([FromServices] AppDbContext db, int id, BlogDataModel blog) =>
+        app.MapPatch("/blog/{id}", async ([FromServices] AppDbContext db, [FromServices] ILogger<Program> _logger, int id, BlogDataModel blog) =>
         {
             var item = await db.Blogs.FirstOrDefaultAsync(x => x.BlogId == id);
 
@@ -124,7 +128,8 @@ public static class BlogService
 
             var result = await db.SaveChangesAsync();
             string message = result > 0 ? "Updating Successful." : "Updating Failed.";
-            return Results.Ok(new BlogResponseModel
+			_logger.LogInformation("Updated Blog => " + JsonSerializer.Serialize(item), "Creating Status" + JsonSerializer.Serialize(message));
+			return Results.Ok(new BlogResponseModel
             {
                 Data = item,
                 IsSuccess = result > 0,
@@ -135,7 +140,7 @@ public static class BlogService
         .WithOpenApi();
 
         //Delete Blog
-        app.MapDelete("/blog/{id}", async ([FromServices] AppDbContext db, int id) =>
+        app.MapDelete("/blog/{id}", async ([FromServices] AppDbContext db, [FromServices] ILogger<Program> _logger, int id) =>
         {
             var item = await db.Blogs.FirstOrDefaultAsync(x => x.BlogId == id);
 
@@ -152,7 +157,8 @@ public static class BlogService
             int result = await db.SaveChangesAsync();
 
             string message = result > 0 ? "Deleting Successful." : "Deleting Failed.";
-            return Results.Ok(new BlogResponseModel
+			_logger.LogInformation("Blog List => " + JsonSerializer.Serialize(item));
+			return Results.Ok(new BlogResponseModel
             {
                 IsSuccess = result > 0,
                 Message = message

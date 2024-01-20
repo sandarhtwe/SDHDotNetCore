@@ -11,7 +11,7 @@ string projectName = Assembly.GetEntryAssembly()?.GetName()?.Name;
 Log.Logger = new LoggerConfiguration()
 			.MinimumLevel.Debug()
 			.WriteTo.Console()
-			.WriteTo.
+			.WriteTo./*File($"logs/{projectName}.txt", rollingInterval: RollingInterval.Day)*/
 				MSSqlServer(
 					connectionString: "Server=DESKTOP-DDE6MVJ\\TESTINGSDH;Database=TestDb;User ID=sa;Password=Sdh@1234;TrustServerCertificate=True;",
 					sinkOptions: new MSSqlServerSinkOptions
