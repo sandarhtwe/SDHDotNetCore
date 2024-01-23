@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using NLog;
+using NLog.Web;
 using SDHDotNetCore.MinimalApi.EFDbContext;
 using SDHDotNetCore.MinimalApi.Features.Blog;
 using Serilog;
@@ -9,6 +11,9 @@ using System.Text.Json.Serialization;
 //to get the project name
 string projectName = Assembly.GetEntryAssembly()?.GetName()?.Name;
 
+var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
+
+
 Log.Logger = new LoggerConfiguration()
 	.WriteTo.Console()
 	.WriteTo.
@@ -16,7 +21,7 @@ Log.Logger = new LoggerConfiguration()
 			connectionString: "Server=DESKTOP-DDE6MVJ\\TESTINGSDH;Database=TestDb;User ID=sa;Password=Sdh@1234;TrustServerCertificate=True;",
 			sinkOptions: new MSSqlServerSinkOptions
 			{
-				TableName = "LogEventsForMinimalApi",
+				TableName = "LogEventsForSerilog",
 				AutoCreateSqlTable = true
 			})
 	//File($"logs/{projectName}.txt", rollingInterval: RollingInterval.Hour, fileSizeLimitBytes: 1024)
@@ -24,11 +29,12 @@ Log.Logger = new LoggerConfiguration()
 
 try
 {
-	Log.Information("Starting web application");
+	logger.Info("Starting web application");
 
 	var builder = WebApplication.CreateBuilder(args);
 
 	builder.Host.UseSerilog();
+	builder.Logging.ClearProviders();
 
 	//Json CamelCase off
 	builder.Services.ConfigureHttpJsonOptions(opt =>
@@ -67,7 +73,8 @@ try
 }
 catch (Exception ex)
 {
-	Log.Fatal(ex, "Application terminated unexpectedly");
+	//Log.Fatal(ex, "Application terminated unexpectedly");
+	logger.Error("Application started fail.. => {ex}", ex.Message);
 }
 finally
 {
