@@ -3,7 +3,7 @@
 <div class="container">
     <h2>Withdraw</h2>
 
-    <form method="post" action="/ATM/Withdraw/@Model.UserId">
+    <form method="post" action="/ATM/Withdraw">
         <div class="form-group">
             <label for="Balance">Withdraw Amount:</label>
             <input type="text" id="Balance" name="amount" required>
@@ -24,12 +24,12 @@
             };
 
             $.ajax({
-                url: '/ATM/Withdraw/@Model.UserId',
+                url: '/ATM/Withdraw',
                 type: 'POST',
                 data: _reqModel,
                 success: function (data) {
                     l.stop();
-                    showMessage(data, "/ATM/MainMenu/@Model.UserId");
+                    showMessage(data, "/ATM/MainMenu");
                 },
                 error: function (request, status, error) {
                     console.log({ request, status, error });
