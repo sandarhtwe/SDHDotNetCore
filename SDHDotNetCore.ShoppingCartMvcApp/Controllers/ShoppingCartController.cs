@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SDHDotNetCore.ShoppingCartMvcApp.EFDbContext;
 using SDHDotNetCore.ShoppingCartMvcApp.Models;
-using ShoppingCart.ShoppingCartMvcApp.Models;
 
 namespace SDHDotNetCore.ShoppingCartMvcApp.Controllers
 {
@@ -11,6 +10,11 @@ namespace SDHDotNetCore.ShoppingCartMvcApp.Controllers
     {
         private readonly AppDbContext _context;
         private static List<AddToCardListModel> items = new List<AddToCardListModel>();
+
+        public ShoppingCartController(AppDbContext context)
+        {
+            _context = context;
+        }
 
         [ActionName("Index")]
         public IActionResult Index()
