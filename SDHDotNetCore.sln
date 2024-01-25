@@ -23,9 +23,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDHDotNetCore.DbFirstComman
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDHDotNetCore.LoggingConsoleApp", "SDHDotNetCore.LoggingConsoleApp\SDHDotNetCore.LoggingConsoleApp.csproj", "{23F11470-190C-4F71-887A-D07261D99AE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDHDotNetCore.NLogRestApi", "SDHDotNetCore.NLogRestApi\SDHDotNetCore.NLogRestApi.csproj", "{9DAFA45B-CFB5-4FDD-AE73-4FE340E1E997}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDHDotNetCore.NLogRestApi", "SDHDotNetCore.NLogRestApi\SDHDotNetCore.NLogRestApi.csproj", "{9DAFA45B-CFB5-4FDD-AE73-4FE340E1E997}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDHDotNetCore.Log4NetRestApi", "SDHDotNetCore.Log4NetRestApi\SDHDotNetCore.Log4NetRestApi.csproj", "{9E079C3D-C9AA-40E2-BC20-247926376A3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDHDotNetCore.Log4NetRestApi", "SDHDotNetCore.Log4NetRestApi\SDHDotNetCore.Log4NetRestApi.csproj", "{9E079C3D-C9AA-40E2-BC20-247926376A3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDHDotNetCore.ShoppingCartMvcApp", "SDHDotNetCore.ShoppingCartMvcApp\SDHDotNetCore.ShoppingCartMvcApp.csproj", "{752F0FFD-A451-48C9-B3C5-C7AF74329C49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{9E079C3D-C9AA-40E2-BC20-247926376A3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E079C3D-C9AA-40E2-BC20-247926376A3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E079C3D-C9AA-40E2-BC20-247926376A3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{752F0FFD-A451-48C9-B3C5-C7AF74329C49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{752F0FFD-A451-48C9-B3C5-C7AF74329C49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{752F0FFD-A451-48C9-B3C5-C7AF74329C49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{752F0FFD-A451-48C9-B3C5-C7AF74329C49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
