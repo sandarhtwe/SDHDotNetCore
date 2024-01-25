@@ -35,8 +35,10 @@ internal class Program
 		//Log.Information("Hello, world!");
 
 		// Log using log4net
-		log4netLogger.Info("Hello, world! (log4net)");
-
+		log4netLogger.Debug("This is a debug message");
+		log4netLogger.Info("This is an info message");
+		log4netLogger.Warn("This is a warning message");
+		log4netLogger.Error("This is an error message", new Exception("Sample Exception"));
 
 		int a = 10, b = 0;
 		try
