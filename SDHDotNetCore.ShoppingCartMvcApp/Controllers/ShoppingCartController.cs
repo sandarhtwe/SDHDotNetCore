@@ -31,52 +31,58 @@ namespace SDHDotNetCore.ShoppingCartMvcApp.Controllers
             }
             return NotFound("No Data Found.");
         }
+
         public IActionResult AddToCart()
         {
             return View(items);
         }
+
         [HttpPost]
         public IActionResult AddToCart(AddToCartRequestModel requestModel)
         {
-            var item = items.FirstOrDefault(x => x.ItemId == requestModel.ItemId);
-            if (item is null)
+            var existingItem = items.FirstOrDefault(x => x.ItemId == requestModel.ItemId);
+
+            if (existingItem is null)
             {
-                items ??= new List<AddToCardListModel>();
                 var itemProduct = _context.ProductItems.FirstOrDefault(x => x.ItemId == requestModel.ItemId);
+
                 if (itemProduct is not null)
                 {
                     items.Add(new AddToCardListModel
                     {
                         ItemId = requestModel.ItemId,
-                        Name = itemProduct!.Name,
+                        Name = itemProduct.Name,
                         Quantity = 1,
-                        Price = itemProduct!.Price
+                        Price = itemProduct.Price
                     });
                 }
             }
             else
             {
-                item.Quantity++;
+                existingItem.Quantity++;
             }
 
-            return Json(new { Count = items.Count });
+            return Ok(new { Count = items.Sum(item => item.Quantity) });
         }
+
 
         [HttpPost]
         public IActionResult RemoveFromCart(AddToCartRequestModel requestModel)
         {
             var item = items.FirstOrDefault(x => x.ItemId == requestModel.ItemId);
-            if (item is null)
-                goto result;
 
-            item.Quantity--;
-            if (item.Quantity == 0)
+            if (item != null)
             {
-                items = items.Where(x => x.ItemId != requestModel.ItemId).ToList();
+                item.Quantity--;
+
+                if (item.Quantity == 0)
+                {
+                    items.RemoveAll(x => x.ItemId == requestModel.ItemId);
+                }
             }
 
-        result:
-            return Json(new { Count = items.Count });
+            return Ok(new { Count = items.Sum(item => item.Quantity) });
         }
+
     }
 }

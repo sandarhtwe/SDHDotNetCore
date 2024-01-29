@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="~/SDHDotNetCore.ShoppingCartMvcApp.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
+  @*   <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SDHDotNetCore.ShoppingCartMvcApp</a>
@@ -32,12 +32,9 @@
                 </div>
             </div>
         </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    </header> *@
+    
+    @RenderBody()
 
     @* <footer class="border-top footer text-muted">
         <div class="container">
@@ -48,7 +45,7 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="~/js/app.js"></script>
+    @* <script src="~/js/app.js"></script> *@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

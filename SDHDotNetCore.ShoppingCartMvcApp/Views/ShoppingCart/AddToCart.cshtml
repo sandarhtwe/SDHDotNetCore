@@ -2,15 +2,17 @@
 
 @foreach (var item in Model)
 {
-    <div class="name">
-        @item.Name
+    <div class="item">
+        <img src="~/assets/image/@(item.ItemId).png" />
+        <div class="name">@item.Name</div>
+        <div class="totalPrice">$ @(item.Price * item.Quantity)</div>
+        <div class="quantity">
+            <button>
+                <span class="minus" data-id="@item.ItemId">-</span>
+            </button>
+            <span>@item.Quantity</span>
+            <span class="plus" data-id="@item.ItemId">+</span>
+        </div>
     </div>
-    <div class="totalPrice">$ @(item.Price * item.Quantity)</div>
-    <div class="quantity">
-        <button>
-            <span class="minus" data-id="@item.ItemId">-</span>
-        </button>
-        <span>@item.Quantity</span>
-        <span class="plus" data-id="@item.ItemId">+</span>
-    </div>
+   
 }
