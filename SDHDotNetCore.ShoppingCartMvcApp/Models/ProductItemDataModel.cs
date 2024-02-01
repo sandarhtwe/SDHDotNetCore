@@ -24,4 +24,10 @@ namespace SDHDotNetCore.ShoppingCartMvcApp.Models
         public decimal Price { get; set; }
         public int Quantity { get; set; }
     }
+
+    public class ThankYouViewModel
+    {
+        public decimal TotalAmount { get; set; }
+        public List<AddToCardListModel> PurchasedItems { get; set; }
+    }
 }

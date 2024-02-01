@@ -9,4 +9,5 @@ namespace SDHDotNetCore.ShoppingCartMvcApp.Models
         public decimal Price { get; set; }
         public List<ProductItemDataModel> Data { get; set; }
     }
+
 }
