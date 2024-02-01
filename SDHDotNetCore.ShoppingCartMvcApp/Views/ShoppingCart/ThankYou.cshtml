@@ -1,20 +1,84 @@
 ﻿@model ThankYouViewModel
 
-<h2>Thank You for Your Purchase!</h2>
+<style>
+    /* Your existing styles... */
 
-<p>Your order has been successfully processed.</p>
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
 
-<p>Total Amount: $@Model.TotalAmount</p>
+    .receipt-container {
+        width: 80%;
+        max-width: 400px;
+        margin: auto;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+    }
 
-@if (Model.PurchasedItems != null && Model.PurchasedItems.Any())
-{
-    <h3>Items Purchased:</h3>
-    <ul>
+    .receipt-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .receipt-items {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .receipt-item {
+        border-bottom: 1px solid #eee;
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .item-details {
+        flex-grow: 1;
+    }
+
+    .item-name {
+        font-weight: bold;
+    }
+
+    .item-quantity {
+        font-size: 0.9em;
+        color: #555;
+    }
+
+    .total-amount {
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    .thank-you-message {
+        font-style: italic;
+        margin-top: 10px;
+    }
+</style>
+
+<div class="receipt-container">
+    <div class="receipt-header">
+        <h2>Thank You for Your Purchase!</h2>
+        <p class="thank-you-message">Your order has been successfully processed. We appreciate your business!</p>
+    </div>
+
+    <ul class="receipt-items">
         @foreach (var item in Model.PurchasedItems)
         {
-            <li>@item.Name - Quantity: @item.Quantity - Price: $@(item.Price * item.Quantity)</li>
+            <li class="receipt-item">
+                <div class="item-details">
+                    <p class="item-name">@item.Name</p>
+                    <p class="item-quantity">Qty: @item.Quantity</p>
+                </div>
+                <p>$@(item.Price * item.Quantity)</p>
+            </li>
         }
     </ul>
-}
 
-<p>We appreciate your business!</p>
+    <p class="total-amount">Total Amount: $@Model.TotalAmount</p>
+</div>
+
