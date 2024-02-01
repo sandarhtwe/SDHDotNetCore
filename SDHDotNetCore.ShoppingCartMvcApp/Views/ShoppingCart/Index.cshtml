@@ -47,6 +47,11 @@
             body.classList.toggle('showCart');
         });
 
+        $('.checkOut').click(function (e) {
+        e.preventDefault();
+        window.location.href = '/ShoppingCart/Checkout';
+        });
+
         function loadCart() {
             $('.listCart').load('/ShoppingCart/AddToCart', function () {
                 $('.minus').click(function () {

@@ -1,0 +1,42 @@
+﻿@model List<AddToCardListModel>
+
+<h2>Checkout</h2>
+
+@if (Model.Count > 0)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Quantity</td>
+                    <td>$@item.Price</td>
+                    <td>$@(item.Quantity * item.Price)</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3"><strong>Total:</strong></td>
+                <td><strong>$@Model.Sum(item => item.Quantity * item.Price)</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <form method="post" asp-action="ProcessCheckout">
+        <button type="submit">Complete Checkout</button>
+    </form>
+}
+else
+{
+    <p>Your shopping cart is empty.</p>
+}

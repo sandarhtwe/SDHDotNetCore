@@ -1,0 +1,20 @@
+﻿@model ThankYouViewModel
+
+<h2>Thank You for Your Purchase!</h2>
+
+<p>Your order has been successfully processed.</p>
+
+<p>Total Amount: $@Model.TotalAmount</p>
+
+@if (Model.PurchasedItems != null && Model.PurchasedItems.Any())
+{
+    <h3>Items Purchased:</h3>
+    <ul>
+        @foreach (var item in Model.PurchasedItems)
+        {
+            <li>@item.Name - Quantity: @item.Quantity - Price: $@(item.Price * item.Quantity)</li>
+        }
+    </ul>
+}
+
+<p>We appreciate your business!</p>
