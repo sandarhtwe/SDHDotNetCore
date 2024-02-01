@@ -84,5 +84,33 @@ namespace SDHDotNetCore.ShoppingCartMvcApp.Controllers
             return Ok(new { Count = items.Sum(item => item.Quantity) });
         }
 
+        [HttpGet]
+        public IActionResult Checkout()
+        {
+            return View(items);
+        }
+
+        [HttpPost]
+        public IActionResult ProcessCheckout()
+        {
+            if (items.Count == 0)
+            {
+                return RedirectToAction("Checkout"); 
+            }
+
+            decimal totalAmount = items.Sum(item => item.Price * item.Quantity);
+
+            List<AddToCardListModel> purchasedItems = new List<AddToCardListModel>(items);
+            items.Clear();
+
+            var thankYouViewModel = new ThankYouViewModel
+            {
+                TotalAmount = totalAmount,
+                PurchasedItems = purchasedItems
+            };
+
+            return View("ThankYou", thankYouViewModel);
+        }
+
     }
 }
